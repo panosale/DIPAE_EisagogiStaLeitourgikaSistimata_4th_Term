@@ -1,0 +1,19 @@
+https://regex101.com/
+
+Άσκηση 1.
+egrep --color 'to' file1 	-> stool, toad
+egrep --color 't.n' file2 	-> tin, Stun, stony
+egrep --color 'a[o-t]' file3	-> at, art, task
+
+Άσκηση 2.
+4.a 	-> egrep --color '^[A-Ma-m]' passwd1 > passwd2
+4.b	-> egrep --color '\/sh$' passwd1 > passwd3
+5. 	-> wc passwd2 = 1197  2396 92400 passwd2
+	-> wc passwd3 = 1669   3341 129066 passwd3
+
+Άσκηση 3
+1.	-> egrep '1$' file
+2.	-> egrep '5....1$' file
+3.	-> egrep ', [JW], ' file
+4.	-> egrep '^[^,]{4},' file
+5. 	-> egrep '[^JW],' file ???
