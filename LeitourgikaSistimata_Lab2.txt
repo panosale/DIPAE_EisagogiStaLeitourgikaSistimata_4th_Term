@@ -58,6 +58,26 @@
 Τι παρατηρείτε για τις εντολές 12-15 ; 
 ΑΠΑΝΤΗΣΗ: Η 12 τυπώνει απλά στην οθόνη όσα αρχεία ξεκινάνε με jan* επειδή τυχαίνει να υπάρχουν στο directory. Η 15 δεν βρίσκει αρχεία στο directory που να ξεκινάνε με January οπότε εμφανίζει μήνυμα σφάλματος.
 16. Χρησιμοποιώντας wildcards εμφανίστε τα αρχεία (με την ls) που το όνομά τους ξεκινάει με «memo» και στην συνέχεια υπάρχει ένας αριθμός από το 3 έως το 20. (άρα θέλουμε να εμφανιστούν τα ονόματα memo4, memo10. 
-ΑΠΑΝΤΗΣΗ: [έλεγχος]
+ΑΠΑΝΤΗΣΗ: ls memo[3-9] memo[1][0-9] memo20, 
+ΕΞΗΓΗΣΗ: Θα βγάλει error για το memo20 γιατί δεν θα το βρίσκει αλλά θα εμφανίσει κανονικά και τα memo4 , memo10.
  
-ΑΣΚΗΣΗ 4
+Άσκηση-4: *
+1) gn*.1: αντιστοιχίζονται τα gn.1  gneiss.1  gnu.1
+2) [A-Z]*[!0-9]: αντιστοιχίζονται τα A2q  File.a  George  Maria
+3) *.[acAC]: αντιστοιχίζονται τα File.a  file.C
+4) */doit*: αντιστοιχίζονται τα one/doit  three/doit.h  two/doit.c
+
+Άσκηση-7: *
+3) cp ~asidirop/public/OSIntro/Lab3_files/*.txt  	step3
+4) cp ~asidirop/public/OSIntro/Lab3_files/[A-Z]*.txt step4
+5) cp ~asidirop/public/OSIntro/Lab3_files/[A-Z3]*.txt step5
+6) cp ~asidirop/public/OSIntro/Lab3_files/[!A-Z3]*.txt step6
+7) cp ~asidirop/public/OSIntro/Lab3_files/d*/*.txt step7
+8) cp ~asidirop/public/OSIntro/Lab3_files/file[0-9][0-9].txt step8
+9) cp ~asidirop/public/OSIntro/Lab3_files/????? step9
+10) cp ~asidirop/public/OSIntro/Lab3_files/file[12] step10
+	a) cp *: το εκλαμβάνει ως cp file1 file2 οπότε όλα τα περιεχόμενα του file1 αντιγράφονται στο file2.
+	β) mv *: το εκλαμβάνει ως mv file1 file2 οπότε τα περιεχόμενα του file1 μπαίνουν στο file2 και η αναφορά του file1 χάνεται.
+	γ) cp *: το file1 αντιγράφεται μέσα στον zip για τον ίδιο λόγο με το α).
+
+* Οι λύσεις αυτές είναι ευγενική παραχώρηση του συναδέλφου MaterTsif
