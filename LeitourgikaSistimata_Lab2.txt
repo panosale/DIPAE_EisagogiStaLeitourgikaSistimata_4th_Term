@@ -70,11 +70,23 @@
 * Οι λύσεις αυτές είναι ευγενική παραχώρηση του συναδέλφου MasterTsif
 
 ΑΣΚΗΣΗ 5:
-1. mkdir lab3.5, stat lab3.5, chmod 755 lab3.5
-2. cd lab3.5, whoami > myid
+1. mkdir lab3.5
+	stat lab3.5
+	chmod 755 lab3.5
+2. cd lab3.5 
+	whoami > myid
 3. chmod 777 myid
 4. who
-5. 
+5. ls -lr /home/student/iee/2022/*/myid ??? ΓΙΑ ΕΛΕΓΧΟ ???
+6. chmod 700 myid ή chmod 733 myid
+7. chmod 722 myid
+8. (date;whoami) >> ~[username]/myid
+9. cat ~[username]/lab3.5/myid 
+	ΑΠΑΝΤΗΣΗ: Αν έχω άδεια w μπορώ να γράψω στο αρχείο.
+10. chmod 777 ~[username]/myid
+	ΕΜΦΑΝΙΖΕΙ ΣΦΑΛΜΑ: chmod: changing permissions of '/home/student/iee/2022/[username]/myid': Operation not permitted
+	ΑΠΑΝΤΗΣΗ: Δεν έχω άδεια να αλλάξω δικαιώματα στο αρχείο.
+12. mv myid myid2
 
 Άσκηση-7: *
 3) cp ~asidirop/public/OSIntro/Lab3_files/*.txt  	step3
