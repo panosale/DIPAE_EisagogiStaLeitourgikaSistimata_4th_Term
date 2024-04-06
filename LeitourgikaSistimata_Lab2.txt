@@ -98,7 +98,7 @@
 3. chmod 755 lab2.8
 4. umask 000
 5. date > myfile
-6. 
+6. ???
 7. umask 000
 	touch public
 	stat public
@@ -110,4 +110,33 @@
 	chmod 245 file3
 	chmod 726 file4
 	chmod 711 dir1
-	
+10. cp /bin/ls ./myls
+11. myls -> ΔΕΝ μπορούμε να την εκτελέσουμε επειδή το shell ψάχνει να την βρει στο PATH
+12. ./myls -> Μπορούμε να την εκτελέσουμε επειδή δίνουμε τον τρέχον κατάλογο (./)
+13. chmod -x myls
+	./myls -> Εμφανίζει: "-bash: ./myls: Permission denied" επειδή αφαιρέσαμε το δικαίωμα x
+14. chmod +x-rw myls
+	./myls -> Μπορούμε να την εκτέλεσουμε επειδή έχουμε το δικαίωμα x
+15. which date -> Επιστρέφει: /usr/bin/date
+	stat /usr/bin/date
+	Επιστρέφει:
+		  File: /usr/bin/date
+		  Size: 121904    	Blocks: 240        IO Block: 4096   regular file
+		Device: 8,1	Inode: 146776      Links: 1
+		Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+		Access: 2024-04-06 06:47:29.434662298 +0300
+		Modify: 2022-09-20 18:27:27.000000000 +0300
+		Change: 2023-10-29 21:18:29.661607505 +0200
+		 Birth: 2023-10-29 21:18:29.661607505 +0200
+
+   which man -> Επιστρέφει: /usr/bin/man
+	stat /usr/bin/man
+	Επιστρέφει:
+		  File: /usr/bin/man
+		  Size: 124272    	Blocks: 248        IO Block: 4096   regular file
+		Device: 8,1	Inode: 133762      Links: 1
+		Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+		Access: 2024-04-05 21:22:56.980631146 +0300
+		Modify: 2023-03-13 00:23:59.000000000 +0200
+		Change: 2023-10-29 21:40:22.893821549 +0200
+		 Birth: 2023-10-29 21:24:58.868451862 +0200
