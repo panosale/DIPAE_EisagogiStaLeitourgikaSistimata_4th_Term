@@ -63,7 +63,7 @@
  
 Άσκηση-4: *
 1) gn*.1: αντιστοιχίζονται τα gn.1  gneiss.1  gnu.1
-2) [A-Z]*[!0-9]: αντιστοιχίζονται τα A2q  File.a  George  Maria
+2) [A-Z]*[!0-9]: αντιστοιχίζονται τα A2q George  Maria
 3) *.[acAC]: αντιστοιχίζονται τα File.a  file.C
 4) */doit*: αντιστοιχίζονται τα one/doit  three/doit.h  two/doit.c
 
