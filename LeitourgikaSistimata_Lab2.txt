@@ -67,6 +67,8 @@
 3) *.[acAC]: αντιστοιχίζονται τα File.a  file.C
 4) */doit*: αντιστοιχίζονται τα one/doit  three/doit.h  two/doit.c
 
+* Οι λύσεις αυτές είναι ευγενική παραχώρηση του συναδέλφου MasterTsif
+
 ΑΣΚΗΣΗ 5:
 1. mkdir lab3.5, stat lab3.5, chmod 755 lab3.5
 2. cd lab3.5, whoami > myid
@@ -88,3 +90,24 @@
 	γ) cp *: το file1 αντιγράφεται μέσα στον zip για τον ίδιο λόγο με το α).
 
 * Οι λύσεις αυτές είναι ευγενική παραχώρηση του συναδέλφου MasterTsif
+
+ΑΣΚΗΣΗ 8:
+1. umask
+2. mkdir lab2.8
+	stat
+3. chmod 755 lab2.8
+4. umask 000
+5. date > myfile
+6. 
+7. umask 000
+	touch public
+	stat public
+8. chmod 764 public
+9. touch file1 file2 file3 file4
+	mkdir dir1
+	chmod 704 file1
+	chmod 071 file2
+	chmod 245 file3
+	chmod 726 file4
+	chmod 711 dir1
+	
