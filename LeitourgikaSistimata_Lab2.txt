@@ -67,6 +67,13 @@
 3) *.[acAC]: αντιστοιχίζονται τα File.a  file.C
 4) */doit*: αντιστοιχίζονται τα one/doit  three/doit.h  two/doit.c
 
+ΑΣΚΗΣΗ 5:
+1. mkdir lab3.5, stat lab3.5, chmod 755 lab3.5
+2. cd lab3.5, whoami > myid
+3. chmod 777 myid
+4. who
+5. 
+
 Άσκηση-7: *
 3) cp ~asidirop/public/OSIntro/Lab3_files/*.txt  	step3
 4) cp ~asidirop/public/OSIntro/Lab3_files/[A-Z]*.txt step4
