@@ -12,8 +12,8 @@ egrep --color 'a[o-t]' file3	-> at, art, task
 	-> wc passwd3 = 1669   3341 129066 passwd3
 
 Άσκηση 3
-1.	-> egrep '1$' file
-2.	-> egrep '5....1$' file
-3.	-> egrep ', [JW], ' file ???
-4.	-> egrep '^[^,]{4},' file
-5. 	-> egrep '[^JW],' file ???
+1.	-> egrep --color '1$' file
+2.	-> egrep --color '5....1$' file
+3.	-> egrep --color '^[^,]*, [JW]' file
+4.	-> egrep --color '^[^,]{4},' file
+5. 	-> egrep --color '[^JW],' file ???
