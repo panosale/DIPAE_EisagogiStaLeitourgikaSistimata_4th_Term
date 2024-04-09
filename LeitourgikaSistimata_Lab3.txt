@@ -17,7 +17,3 @@ egrep --color 'a[o-t]' file3	-> at, art, task
 3.	-> egrep ', [JW], ' file
 4.	-> egrep '^[^,]{4},' file
 5. 	-> egrep '[^JW],' file ???
-
-Default umask rights:
-	Files: 666 -> rw-rw-rw-
-	Dirs : 777 -> rwxrwxrwx
