@@ -14,6 +14,6 @@ egrep --color 'a[o-t]' file3	-> at, art, task
 Άσκηση 3
 1.	-> egrep '1$' file
 2.	-> egrep '5....1$' file
-3.	-> egrep ', [JW], ' file
+3.	-> egrep ', [JW], ' file ???
 4.	-> egrep '^[^,]{4},' file
 5. 	-> egrep '[^JW],' file ???
