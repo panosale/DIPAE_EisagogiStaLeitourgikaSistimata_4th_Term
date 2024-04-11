@@ -1,6 +1,6 @@
 https://regex101.com/
 
-ΑΣΚΗΣΗ 1.
+ΑΣΚΗΣΗ 1
 egrep --color 'to' file1
 	ΑΠΑΝΤΗΣΗ: stool, toad
 egrep --color 't.n' file2
@@ -8,7 +8,7 @@ egrep --color 't.n' file2
 egrep --color 'a[o-t]' file3
 	ΑΠΑΝΤΗΣΗ: at, art, task
 
-ΑΣΚΗΣΗ 2.
+ΑΣΚΗΣΗ 2
 4.a 	-> egrep --color '^[A-Ma-m]' passwd1 > passwd2
 4.b	-> egrep --color '\/sh$' passwd1 > passwd3
 5. 	-> wc passwd2 = 1197  2396 92400 passwd2
