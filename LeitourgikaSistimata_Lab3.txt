@@ -1,9 +1,12 @@
 https://regex101.com/
 
 ΑΣΚΗΣΗ 1.
-egrep --color 'to' file1 	-> stool, toad
-egrep --color 't.n' file2 	-> tin, Stun, stony
-egrep --color 'a[o-t]' file3	-> at, art, task
+egrep --color 'to' file1
+	ΑΠΑΝΤΗΣΗ: stool, toad
+egrep --color 't.n' file2
+	ΑΠΑΝΤΗΣΗ: tin, Stun, stony
+egrep --color 'a[o-t]' file3
+	ΑΠΑΝΤΗΣΗ: at, art, task
 
 ΑΣΚΗΣΗ 2.
 4.a 	-> egrep --color '^[A-Ma-m]' passwd1 > passwd2
@@ -12,26 +15,46 @@ egrep --color 'a[o-t]' file3	-> at, art, task
 	-> wc passwd3 = 1669   3341 129066 passwd3
 
 ΑΣΚΗΣΗ 3
-1.	-> egrep --color '1$' file
-2.	-> egrep --color '5....1$' file
-3.	-> egrep --color '^[^,]*, [JW]' file (ΓΙΑΤΙ?)
-4.	-> egrep --color '^[^,]{4},' file
-5. 	-> egrep --color '[^JW],' file (???)
-6. 	-> egrep --color '^[M-Z], ' file (ΝΑ ΕΛΕΓΧΘΕΙ)
-7. 	-> egrep --color '^[M-Z]*[12]$' file (ΝΑ ΕΛΕΓΧΘΕΙ)
-8. 	-> egrep --color '[^22]$' file (ΝΑ ΕΛΕΓΧΘΕΙ)
+1. Που περιέχουν τηλέφωνο που τελειώνει σε 1.
+	ΑΠΑΝΤΗΣΗ: egrep --color '1$' file
+2. Που περιέχουν τηλέφωνο που αρχίζει από 5 και τελειώνει σε 1.
+	ΑΠΑΝΤΗΣΗ: egrep --color '5....1$' file
+3. Με όνομα που αρχίζει από J ή W (το όνομα είναι το 2ο πεδίο στην κάθε γραμμή)
+	ΑΠΑΝΤΗΣΗ: egrep --color '^[^,]*, [JW]' file (ΓΙΑΤΙ?)
+4. Με επίθετο μήκους 4 χαρακτήρων
+	ΑΠΑΝΤΗΣΗ: egrep --color '^[^,]{4},' file
+5. Που δεν περιέχουν τα γράμματα J ή W
+	ΑΠΑΝΤΗΣΗ: egrep --color '[^JW],' file (???)
+6. Με επίθετο που ξεκινά από M έως Z
+	ΑΠΑΝΤΗΣΗ: egrep --color '^[M-Z], ' file (ΝΑ ΕΛΕΓΧΘΕΙ)
+7. Με επίθετο που ξεκινά από M έως Z και αριθμό τηλεφώνου που τελειώνει με 1 ή 2.
+	ΑΠΑΝΤΗΣΗ: egrep --color '^[M-Z]*[12]$' file (ΝΑ ΕΛΕΓΧΘΕΙ)
+8. Με αριθμό τηλεφώνου που ΔΕΝ τελειώνει σε 22.
+	ΑΠΑΝΤΗΣΗ: egrep --color '[^22]$' file (ΝΑ ΕΛΕΓΧΘΕΙ)
 
 ΑΣΚΗΣΗ 4
 mkdir os/lab3/askisi4/
+vi filep
+[ΔΙΝΟΥΜΕ ΤΟ ΚΕΙΜΕΝΟ ΠΟΥ ΖΗΤΑΕΙ Η ΑΣΚΗΣΗ]
+Να βρείτε τα αποτελέσματα των παρακάτω εντολών και εξηγήστε τα:
 1. egrep 'a?' filep
+	ΑΠΑΝΤΗΣΗ: Βρίσκει τις γραμμές που έχουν ακριβώς 2 χαρακτήρες και ξεκινάνε με a (ΕΛΕΓΧΟΣ)
 2. egrep '(a|b)+' filep
+	ΑΠΑΝΤΗΣΗ: 
 3. egrep '[ab]+' filep (Ποια είναι η διαφορά με το προηγούμενο;)
+	ΑΠΑΝΤΗΣΗ: 
 4. egrep '.{2}' filep
+	ΑΠΑΝΤΗΣΗ: 
 5. egrep '.{2,}' filep
+	ΑΠΑΝΤΗΣΗ: 
 6. egrep '(.)\1' filep
+	ΑΠΑΝΤΗΣΗ: 
 7. egrep '(.).*\1' filep
+	ΑΠΑΝΤΗΣΗ: 
 8. egrep '(..).*\1' filep
+	ΑΠΑΝΤΗΣΗ: 
 9. egrep '(.{3}).*\1' filep
+	ΑΠΑΝΤΗΣΗ: 
 
 ΑΣΚΗΣΗ 5
 mkdir os/lab3/askisi5/
