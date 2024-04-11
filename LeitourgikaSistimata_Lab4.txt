@@ -1,0 +1,7 @@
+ΑΣΚΗΣΗ 1
+1. ps
+	ps -ef
+	ps -al
+	ps -aldef
+	ps -ux (???)
+	ps -auxw (???)
