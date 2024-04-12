@@ -117,13 +117,14 @@ touch f7
 chmod 111 f7
 Με χρήση της εντολής ls -l και egrep να βρείτε τα αρχεία όπου:
 1. To group να έχει τα δικαιώματα r-x.
-	ΑΠΑΝΤΗΣΗ:
+	ΑΠΑΝΤΗΣΗ: ls -l | grep --color '\-r-x'
+		Ή ls -l | grep --color '^.r-x'
 2. Ο user και οι others έχουν ακριβώς τα ίδια δικαιώματα
-	ΑΠΑΝΤΗΣΗ:
+	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([-rwx]{3})\1 '
 3. Ο user, το group και οι others έχουν ακριβώς τα ίδια δικαιώματα
-	ΑΠΑΝΤΗΣΗ:
+	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([-rwx]{3})\1\1 '
 4. Ο user, το group και οι others έχουν τα ίδια δικαιώματα για write και execute
-	ΑΠΑΝΤΗΣΗ:
+	ΑΠΑΝΤΗΣΗ: 
 5. Ο user, το group και οι others έχουν τα ίδια δικαιώματα για write
 	ΑΠΑΝΤΗΣΗ:
 6. Ο user, το group και οι others έχουν τα ίδια δικαιώματα για read και execute
