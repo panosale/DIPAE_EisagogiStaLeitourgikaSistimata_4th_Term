@@ -5,7 +5,7 @@ https://regex101.com/
 	ΑΠΟΤΕΛΕΣΜΑ: stool, toad
 ΑΠΑΝΤΗΣΗ: egrep --color 't.n' file2
 	ΑΠΟΤΕΛΕΣΜΑ: tin, Stun, stony
-ΑΠΑΝΤΗΣΗ: egrep --color 'a[o-t]' file3
+ΑΠΑΝΤΗΣΗ: egrep --color 'a[o-t].' file3 -> CHECK
 	ΑΠΟΤΕΛΕΣΜΑ: at, art, task
 
 ΑΣΚΗΣΗ 2
