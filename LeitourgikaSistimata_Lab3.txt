@@ -17,7 +17,8 @@ https://regex101.com/
 		cp ~asidirop/public/OSIntro/Lab4_files/passwd passwd1
 		ls -l passwd1
 4.a Βρείτε μόνον τις γραμμές του passwd1 που αρχίζουν με τα γράμματα Α-Μ και a-m και βάλτε το αποτέλεσμα σε ένα αρχείο με το όνομα passwd2.
-	ΑΠΑΝΤΗΣΗ: egrep --color '^[A-Ma-m]' passwd1 > passwd2
+	ΑΠΑΝΤΗΣΗ: egrep --color '^[A-Ma-m]' passwd1 > passwd2 
+		Ή egrep --color -i '^[a-m]' passwd1 > passwd2
 4.b Βρείτε όλους τους χρήστες (τις γραμμές) που χρησιμοποιούν φλοιό sh ως προεπιλεγμένο. Tο όνομα φλοιού είναι η τελευταία λέξη στο 7ο πεδίο. Βάλτε το αποτέλεσμα σε ένα νέο αρχείο passwd3.
 	ΑΠΑΝΤΗΣΗ: egrep --color '/sh$' passwd1 > passwd3
 5. Χρησιμοποιείστε την εντολή wc για να μετρήσετε πόσες γραμμές αντιστοιχούν στις προηγούμενες δύο περιπτώσεις.
@@ -29,9 +30,11 @@ https://regex101.com/
 	ΑΠΑΝΤΗΣΗ: egrep --color '1$' file
 2. Που περιέχουν τηλέφωνο που αρχίζει από 5 και τελειώνει σε 1.
 	ΑΠΑΝΤΗΣΗ: egrep --color '5....1$' file
+		Ή egrep --color '5.{4}1$' file -> CHECK
+		Ή egrep --color ' 5.*1$' file -> CHECK
 3. Με όνομα που αρχίζει από J ή W (το όνομα είναι το 2ο πεδίο στην κάθε γραμμή)
 	ΑΠΑΝΤΗΣΗ: egrep --color '*, [JW]' file
-	Ή: egrep --color '^[^,]*, [JW]' file
+		Ή egrep --color '^[^,]*, [JW]' file
 4. Με επίθετο μήκους 4 χαρακτήρων
 	ΑΠΑΝΤΗΣΗ: egrep --color '^[^,]{4},' file
 5. Που δεν περιέχουν τα γράμματα J ή W
