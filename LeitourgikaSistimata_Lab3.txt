@@ -124,13 +124,13 @@ chmod 111 f7
 3. Ο user, το group και οι others έχουν ακριβώς τα ίδια δικαιώματα
 	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([-rwx]{3})\1\1 '
 4. Ο user, το group και οι others έχουν τα ίδια δικαιώματα για write και execute
-	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([-][w][x])\1 '
+	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([-][w][x])\1\1 ' -> ΓΙΑ ΕΛΕΓΧΟ.
 5. Ο user, το group και οι others έχουν τα ίδια δικαιώματα για write
-	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([-][w][-])\1\1 '
+	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([-][w][-])\1\1 ' -> ΓΙΑ ΕΛΕΓΧΟ.
 6. Ο user, το group και οι others έχουν τα ίδια δικαιώματα για read και execute
-	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([r][-][x])\1\1 '
+	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([r][-][x])\1\1 ' -> ΓΙΑ ΕΛΕΓΧΟ.
 7. Ο user και οι others έχουν τα ίδια δικαιώματα για read και execute
-	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([r][-][x])\1 '
+	ΑΠΑΝΤΗΣΗ: ls -l | egrep --color '([r][-][x])\1 ' -> ΓΙΑ ΕΛΕΓΧΟ.
 
 ΑΣΚΗΣΗ 7
 mkdir ~/os/lab3/askisi7/
