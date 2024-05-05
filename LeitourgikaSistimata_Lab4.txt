@@ -74,6 +74,17 @@ mkdir ~/os/lab4/askisi3/
 	ΑΠΑΝΤΗΣΗ: ls -l | sort -k5n | tail -1
 
 ΑΣΚΗΣΗ 6
+#!/bin/bash
+echo "Contents of directory: "
+ls -l
+echo -n "Number of files: "
+ls -l | egrep -c '^-'
+echo -n "Number of directories: "
+ls -l | egrep -c '^d'
+echo -n "Number of hidden files: "
+ls -la | tr -s [:space:] | egrep '^[^d]' | cut -d" " -f9 | egrep -c '^\.'
+echo -n "Number of hidden directories: "
+ls -la | tr -s [:space:] | egrep '^d' | cut -d" " -f9 | egrep -c '^\.'
 
 ΑΣΚΗΣΗ 7
 
