@@ -20,6 +20,7 @@
     #!/bin/bash
     if (test $# -eq 0) || (test $# -gt 1); then
     	echo "ERROR: Wrong number of parameters have been given." 1>&2
+      exit 1
     else
     	for ((i=1; i<51; i++))
     	do
