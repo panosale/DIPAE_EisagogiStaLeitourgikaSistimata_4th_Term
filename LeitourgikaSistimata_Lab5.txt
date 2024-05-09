@@ -1,31 +1,40 @@
 ΑΣΚΗΣΗ 1
   ΛΥΣΗ (Έχει μια παραπάνω δυνατότητα απο αυτή που ζητάει η άσκηση, εμφανίζει τον αύξων αριθμό κάθε Οντότητας τους Συστήματος Αρχείων):
-  #!/bin/bash
-  id=1
-  for i in *
-  do
-  	echo -n "${id}. "
-  	if test -d $i; then
-  		echo "${i} : is directory."
-  	elif test -e $i; then
-  		echo "${i} : is file."
-  	else
-  		echo "${i}: is something else."
-  	fi
-  	((id++))
-  done
+    #!/bin/bash
+    id=1
+    for i in *
+    do
+    	echo -n "${id}. "
+    	if test -d $i; then
+    		echo "${i} : is directory."
+    	elif test -e $i; then
+    		echo "${i} : is file."
+    	else
+    		echo "${i}: is something else."
+    	fi
+    	((id++))
+    done
 
-ΑΣΚΗΣΗ 2
+ΑΣΚΗΣΗ 2.1
   ΛΥΣΗ:
-  #!/bin/bash
-  if (test $# -eq 0) || (test $# -gt 1); then
-  	echo "ERROR: Wrong number of parameters have been given." 1>&2
-  else
-  	for ((i=1; i<51; i++))
-  	do
-  		touch ${1}${i}
-  	done
-  fi
+    #!/bin/bash
+    if (test $# -eq 0) || (test $# -gt 1); then
+    	echo "ERROR: Wrong number of parameters have been given." 1>&2
+    else
+    	for ((i=1; i<51; i++))
+    	do
+    		touch ${1}${i}
+    	done
+    fi
+ΑΣΚΗΣΗ 2.2
+  ΛΥΣΗ: Δημιουργία 100 αρχείων
+    #!/bin/bash
+    for ((i=1; i<101; i++))
+    do
+    	touch "${i}file"
+    done
+  ΛΥΣΗ: Διαγραφή των 100 αρχείων
+
 
 ΑΣΚΗΣΗ 3
 ΑΣΚΗΣΗ 4
@@ -36,7 +45,6 @@
 ΑΣΚΗΣΗ 9
 ΑΣΚΗΣΗ 10
   ΛΥΣΗ (Θέλει βελτίωση ωστε να ελέγχει αν έχει δοθεί παράμετρος):
-  ./display_capital.sh
     #!/bin/bash
     cat $1 | tr [:lower:] [:upper:]
 
