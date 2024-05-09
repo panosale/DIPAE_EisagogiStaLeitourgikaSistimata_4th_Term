@@ -41,8 +41,32 @@
     	rm "${i}file"
     done
 
-
 ΑΣΚΗΣΗ 3
+  ΛΥΣΗ:
+    #!/bin/bash
+    echo -n "Give directory 1 name: "
+    read dir1
+    echo -n "Give directory 2 name: "
+    read dir2
+    #echo "Directory 1: ${dir1}"
+    #echo "Directory 2: ${dir2}"
+    # Check if given directories exist
+    if [ ! -e $dir1 ] ; then
+    	echo "Dir ${dir1} does not exist and will be created."
+    	mkdir "${dir1}"
+    fi
+    if [ ! -e $dir2 ]; then
+    	echo "Dir ${dir2} does not exist and will be created."
+    	mkdir "${dir2}"
+    fi
+    mv [0-5]* "${dir1}/"
+    mv [6-9]* "${dir2}/"
+    echo -n "Total files moved in ${dir1}: "
+    lines_dir1=`ls -l "${dir1}" | wc -l`
+    echo $((lines_dir1-1))
+    echo -n "Total files moved in ${dir2}: "
+    lines_dir2=`ls -l "${dir2}" | wc -l`
+    echo $((lines_dir2-1))
 ΑΣΚΗΣΗ 4
 ΑΣΚΗΣΗ 5
 ΑΣΚΗΣΗ 6
