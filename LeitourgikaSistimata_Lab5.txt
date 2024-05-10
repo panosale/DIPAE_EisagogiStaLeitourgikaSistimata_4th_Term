@@ -73,7 +73,7 @@
     #!/bin/bash
     tmp_exitcode=0
     found=1
-    if (test $# -eq 0) || (test $# -gt 1); then
+    if (test $# -ne 1); then
     	echo "ERROR: Wrong number of parameters have been given." 1>&2
     	exit 1
     else
