@@ -69,6 +69,38 @@
     echo $((lines_dir2-1)) # ΓΙΑ ΤΗΝ ΑΦΑΙΡΕΣΗ ΤΗΣ ΓΡΑΜΜΗΣ total x
 
 ΑΣΚΗΣΗ 4
+  ΛΥΣΗ: Επιστρέφει και errorcodes αν και δεν τα ζηταέι η άσκηση.
+    #!/bin/bash
+    tmp_exitcode=0
+    found=1
+    if (test $# -eq 0) || (test $# -gt 1); then
+    	echo "ERROR: Wrong number of parameters have been given." 1>&2
+    	exit 1
+    else
+    	if test -e $1; then
+    		echo "${1} FOUND IN CURRENT DIRECTORY"
+    		found=0
+    	else
+    #		echo "ERROR: File not found in current directory." 1>&2
+    		tmp_exitcode=1
+    	fi	
+    	for i in *;
+    	do
+    		if test -d $i; then
+    			if test -e ./$i/$1; then
+    				echo "${1} FOUND IN DIRECTORY ./${i}"
+    				found=0
+    			fi
+    		fi
+    	done
+    fi
+    if (test $found -eq 0); then
+    	tmp_exitcode=0
+    else
+    	tmp_exitcode=2
+    fi
+    exit ${tmp_exitcode}
+
 ΑΣΚΗΣΗ 5
 ΑΣΚΗΣΗ 6
 ΑΣΚΗΣΗ 7
