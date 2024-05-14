@@ -97,6 +97,7 @@
     if (test $found -eq 0); then
     	tmp_exitcode=0
     else
+    	echo "ERROR: No file found." 1>&2
     	tmp_exitcode=2
     fi
     exit ${tmp_exitcode}
