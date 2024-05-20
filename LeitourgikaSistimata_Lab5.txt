@@ -139,14 +139,14 @@
     	if [ -d $1 ]; then
     	    ls -l "${1}"/*."${2}" | egrep --color '^-r'
     #	    result=`ls -l "${1}"/*."${2}"`
-    #	    if [ "${?}" -ne 0 ]; then
-    #            exit 2
+    	    if [ "${?}" -ne 0 ]; then
+    		    found=2
+    		fi
     #        else
     #            echo "${result}"
     #            ls -l "${1}"/*."${2}" | egrep --color '^-r'
     #	    fi
     #		echo "${1} FOUND IN CURRENT DIRECTORY"
-    		found=0
     	else
     		echo "ERROR: First paramater is not directory." 1>&2
             exit 2
@@ -164,10 +164,11 @@
     if [ $found -eq 0 ]; then
     	tmp_exitcode=0
     else
-    	echo "ERROR: No file found." 1>&2
+    	echo "ERROR: No files found." 1>&2
     	tmp_exitcode=2
     fi
     exit ${tmp_exitcode}
+
 ΑΣΚΗΣΗ 6
 ΑΣΚΗΣΗ 7
 ΑΣΚΗΣΗ 8
