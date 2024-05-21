@@ -72,7 +72,7 @@ mkdir ~/os/lab4/askisi3/
 	ΑΠΑΝΤΗΣΗ: ΜΕ ΑΥΞΟΥΣΑ ΤΑΞΙΝΟΜΗΣΗ: ps -aux | sort -k2n | tail -3
 		Ή ΜΕ ΦΘΙΝΟΥΣΑ ΤΑΞΙΝΟΜΗΣΗ: ps -aux | sort -k2nr | head -3
 8. Βρείτε το αρχείο (από τον τρέχον φάκελο) με το μεγαλύτερο μέγεθος.
-	ΑΠΑΝΤΗΣΗ: ls -l | sort -k5n | tail -1
+	ΑΠΑΝΤΗΣΗ: ls -l | egrep '^-' | sort -k5n | tail -1
 
 ΑΣΚΗΣΗ 6
 #!/bin/bash
