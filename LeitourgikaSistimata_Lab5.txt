@@ -20,15 +20,15 @@
   ΛΥΣΗ:
     #!/bin/bash
     #create_test.sh
-    if (test $# -eq 0) || (test $# -gt 1); then
+    if [ "${#}" -ne 1 ]; then
     	echo "ERROR: Wrong number of parameters have been given." 1>&2
-      exit 1
-    else
-    	for ((i=1; i<51; i++))
-    	do
-    		touch ${1}${i}
-    	done
+    	exit 1
     fi
+    for ((i=1; i<51; i++))
+    do
+    	touch ${1}${i}
+    done
+
 ΑΣΚΗΣΗ 2.2
   ΛΥΣΗ: Δημιουργία 100 αρχείων
     #!/bin/bash
