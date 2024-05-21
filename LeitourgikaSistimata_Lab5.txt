@@ -129,47 +129,37 @@
     exit ${tmp_exitcode}
 
 ΑΣΚΗΣΗ 5
-  ΛΥΣΗ: UNDER CONSTRUCTION
-    #!/bin/bash
-    #lab5 - askisi5
-    tmp_exitcode=0
-    found=1
-    if (test $# -ne 2); then
-    	echo "ERROR: Wrong number of parameters have been given." 1>&2
-    	exit 1
-    else
-    	if [ -d $1 ]; then
-    	    ls -l "${1}"/*."${2}" | egrep --color '^-r'
-    #	    result=`ls -l "${1}"/*."${2}"`
-    	    if [ "${?}" -ne 0 ]; then
-    		    found=2
-    		fi
-    #        else
-    #            echo "${result}"
-    #            ls -l "${1}"/*."${2}" | egrep --color '^-r'
-    #	    fi
-    #		echo "${1} FOUND IN CURRENT DIRECTORY"
-    	else
-    		echo "ERROR: First paramater is not directory." 1>&2
-            exit 2
-    	fi	
-    #	for i in *;
-    #	do
-    #		if test -d $i; then
-    #			if test -e ./$i/$1; then
-    #				echo "${1} FOUND IN DIRECTORY ./${i}"
-    #				found=0
-    #			fi
-    #		fi
-    #	done
-    fi
-    if [ $found -eq 0 ]; then
-    	tmp_exitcode=0
-    else
-    	echo "ERROR: No files found." 1>&2
-    	tmp_exitcode=2
-    fi
-    exit ${tmp_exitcode}
+  ΛΥΣΗ: 
+	#!/bin/bash
+	#lab5 - askisi5
+	tmp_exitcode=0
+	found=0
+	linesfound=0
+	if (test $# -ne 2); then
+		echo "ERROR: Wrong number of parameters have been given." 1>&2
+	exit 1
+	else
+	      	if [ -d $1 ]; then
+	      		ls -l "${1}"/*."${2}" 2>/dev/null | egrep --color '(^-[r].{2}[r])|(^-[r].{5}[r])|^-.{3}[r].{2}[r]'
+	      		if [ "${?}" -eq 0 ]; then
+	      			found=0
+	      		else
+	      			found=2
+	      		fi
+	      	else
+	      		echo "ERROR: First paramater is not directory." 1>&2
+	      		exit 2
+	      	fi	
+	fi
+	if [ $found -eq 0 ]; then
+	      	tmp_exitcode=0
+	      	echo -n "Total lines found: "
+	      	ls -l "${1}"/*."${2}" 2>/dev/null | egrep --color '(^-[r].{2}[r])|(^-[r].{5}[r])|^-.{3}[r].{2}[r]' | wc -l
+	else
+	      	echo "ERROR: No files found." 1>&2
+	      	tmp_exitcode=2
+	fi
+	exit ${tmp_exitcode}
 
 ΑΣΚΗΣΗ 6
 ΑΣΚΗΣΗ 7
