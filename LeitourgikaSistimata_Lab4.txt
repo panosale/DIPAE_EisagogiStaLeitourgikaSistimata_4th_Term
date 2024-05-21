@@ -65,8 +65,9 @@ mkdir ~/os/lab4/askisi3/
 	ΑΠΑΝΤΗΣΗ: ls */ -d | wc -l
 5. Μετρήστε πόσοι χρήστες υπάρχουν στο σύστημα (στο users μετρήστε τις γραμμές από την εντολή getent passwd).
 	ΑΠΑΝΤΗΣΗ: getent passwd | wc -l
-6. Μετρήστε πόσοι χρήστες έχουν username που ξεκινάει με a και τελειώνει σε p. (13)
+6. Μετρήστε πόσοι χρήστες έχουν username που ξεκινάει με a και τελειώνει σε p. (από το /home/staff/asidirop/public/OSIntro/Lab4_files/passwd φέρνει 13)
 	ΑΠΑΝΤΗΣΗ: getent passwd | egrep --color '^[a].*[p][:][*]' ---> ΦΕΡΝΕΙ ΜΟΝΟ 1. ΓΙΑ ΕΛΕΓΧΟ.
+		ΓΙΑ ΕΛΕΓΧΟ: cat /home/staff/asidirop/public/OSIntro/Lab4_files/passwd | egrep --color '^[a^:]*p:*' | wc -l
 7. Βρείτε την διεργασία με το μεγαλύτερο PID. (θυμηθείτε τις εντολές sort, head, tail)
 	ΑΠΑΝΤΗΣΗ: ΜΕ ΑΥΞΟΥΣΑ ΤΑΞΙΝΟΜΗΣΗ: ps -aux | sort -k2n | tail -3
 		Ή ΜΕ ΦΘΙΝΟΥΣΑ ΤΑΞΙΝΟΜΗΣΗ: ps -aux | sort -k2nr | head -3
