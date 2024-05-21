@@ -83,9 +83,11 @@ ls -l | egrep -c '^-'
 echo -n "Number of directories: "
 ls -l | egrep -c '^d'
 echo -n "Number of hidden files: "
-ls -la | tr -s [:space:] | egrep '^[^d]' | cut -d" " -f9 | egrep -c '^\.'
+ls -lad .* | egrep '^-' | wc -l
+#ls -la | tr -s [:space:] | egrep '^[^d]' | cut -d" " -f9 | egrep -c '^\.'
 echo -n "Number of hidden directories: "
-ls -la | tr -s [:space:] | egrep '^d' | cut -d" " -f9 | egrep -c '^\.'
+ls -lad .* | egrep '^d' | wc -l
+#ls -la | tr -s [:space:] | egrep '^d' | cut -d" " -f9 | egrep -c '^\.'
 
 ΑΣΚΗΣΗ 7
 ΑΠΑΝΤΗΣΗ: Παρατηρούμε ότι:
