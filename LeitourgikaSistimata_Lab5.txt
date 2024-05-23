@@ -162,6 +162,26 @@
 	exit ${tmp_exitcode}
 
 ΑΣΚΗΣΗ 6
+  ΛΥΣΗ:
+	#!/bin/bash
+	#lab5 - askisi6
+	# Basic checks - START
+	if [ "${#}" -ne 1 ]; then # Check number of paramaters
+		echo "ERROR: Wrong number of parameters have been given." 1>&2
+		exit 1
+	fi
+	if [ ! -d "${1}" ]; then # Check if given parameter is a directory
+		echo "ERROR: Parameter is not a directory." 1>&2
+		exit 2
+	fi
+	# Basic checks - END
+	dir="${1}"
+	for f in "$dir/"*; do
+		if [ -f "${f}" ]; then
+			file "${f}"
+		fi
+	done
+
 ΑΣΚΗΣΗ 7
 ΑΣΚΗΣΗ 8
 ΑΣΚΗΣΗ 9
