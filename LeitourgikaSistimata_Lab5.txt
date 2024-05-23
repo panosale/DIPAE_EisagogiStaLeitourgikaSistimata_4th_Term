@@ -188,7 +188,7 @@
 	#lab5 - askisi7
 	# Basic checks - START
 	required_params=2 # Number of required parameters
-	if [ "${#}" -ne "${required_params}" ]; then # Check number of paramaters
+	if [ "${#}" -ne "${required_params}" ]; then # Check number of parameters
 		echo "ERROR: Wrong number of parameters have been given." 1>&2
 		exit 1
 	fi
