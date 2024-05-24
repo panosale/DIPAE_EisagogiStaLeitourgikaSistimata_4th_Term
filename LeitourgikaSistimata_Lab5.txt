@@ -185,7 +185,7 @@
 ΑΣΚΗΣΗ 7
   ΛΥΣΗ:
 	#!/bin/bash
-	#lab5 - askisi7
+	#lab5 - askisi7 - comp_room.sh
 	# Basic checks - START
 	required_params=2 # Number of required parameters
 	if [ "${#}" -ne "${required_params}" ]; then # Check number of parameters
@@ -215,6 +215,27 @@
 	# NOTES/TESTS - END
 
 ΑΣΚΗΣΗ 8
+  ΛΥΣΗ:
+	#!/bin/bash
+	#lab5 - Askisi 8 - checkusers.sh
+	file2read="passwd"
+	i=1
+	IFS=':'
+	while read line; do
+		set ${line}
+		echo "Username: ${1} - Home folder: ${6}"
+	done < "${file2read}"
+	# ΠΑΡΑΤΗΡΗΣΗ 1: 
+	#	Για να ταξινομηθεί το αποτέλεσμα σύμφωνα με το username
+	#	θα πρέπει να εκτελέσουμε το script με τον παρακάτω τρόπο:
+	#	./checkusers.sh | sort -k2 -t" "
+
+	# ΠΑΡΑΤΗΡΗΣΗ 2: 
+	#	Αν μια γραμμή περιέχει ανάμεσα στον διαχωριστή (:) μόνο το * (π.χ. ":*:"
+	#	τότε χαλάει η καταχώρηση στις μεταβλητές {1}, {2} κτλ με την set.
+	#	Αν το * περιέχεται ανάμεσα στο κείμενο του πεδίου που θέλουμε να αντιστοιχίσουμε 
+	#	σε μια μεταβλητή (π.χ. :zn*si:) δεν υπάρχει πρόβλημα.
+
 ΑΣΚΗΣΗ 9
 ΑΣΚΗΣΗ 10
   ΛΥΣΗ (Θέλει βελτίωση ωστε να ελέγχει αν έχει δοθεί παράμετρος):
