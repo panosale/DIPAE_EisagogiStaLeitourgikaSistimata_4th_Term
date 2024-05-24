@@ -207,7 +207,7 @@
 		mv "ip${room_param}.txt" "ip${room_param}.bak"
 	fi
 	egrep ":${room_param}" "${file_param}" | egrep --color '(:.{2}[[:digit:]]){1}' | sort -t ":" -k2n > "ip${room_param}.txt"
-	echo "File \"ip${room_param}.txt\" with `wc -l < "ip${room_param}.txt"` lines created succefully."
+	echo "File \"ip${room_param}.txt\" with `wc -l < "ip${room_param}.txt"` lines created successfully."
 	# NOTES/TESTS - START
 	# USE THIS? cut -d":" -f2 data.txt | cut -c4-5 | sort -k1n
 	# THIS? sort -k2n -t ":" data.txt
