@@ -193,17 +193,17 @@
 		exit 1
 	fi
 	if [ ! -f "${1}" ]; then # Check if 1st parameter is a file
-		echo "ERROR: Parameter #1 does not exist." 1>&2
+		echo "ERROR: File \"${1}\" does not exist." 1>&2
 		exit 2
 	fi
 	if [ ! -r "${1}" ]; then # Check if 1st parameter is a readable file
-		echo "ERROR: Parameter #1 is not a readable file." 1>&2
+		echo "ERROR: File \"${1}\" is not a readable file." 1>&2
 		exit 2
 	fi
 	# Basic checks - END
 	file_param="${1}"
 	room_param="${2}"
-	if [ -f "ip${room_param}.txt" ]; then # Check if ip$room_param file exists and keeps backup
+	if [ -e "ip${room_param}.txt" ]; then # Check if ip$room_param file exists and keeps backup
 		mv "ip${room_param}.txt" "ip${room_param}.bak"
 	fi
 	egrep ":${room_param}" "${file_param}" | egrep --color '(:.{2}[[:digit:]]){1}' | sort -t ":" -k2n > "ip${room_param}.txt"
