@@ -219,7 +219,6 @@
 	#!/bin/bash
 	#lab5 - Askisi 8 - checkusers.sh
 	file2read="/etc/passwd"
-	i=1
 	IFS=':'
 	while read line; do
 		set ${line}
