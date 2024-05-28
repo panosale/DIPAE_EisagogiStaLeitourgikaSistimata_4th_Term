@@ -240,6 +240,11 @@
 
 ΑΣΚΗΣΗ 11
 ΑΣΚΗΣΗ 12
+  ΛΥΣΗ
+	#!/bin/bash
+	#Lab5 - Askisi 12
+	last | egrep '^[^ ]' | head -n -1 | cut -f 1 -d" " | sort | uniq -c | sort -nr
+
 ΑΣΚΗΣΗ 13
 ΑΣΚΗΣΗ 14
 ΑΣΚΗΣΗ 15
