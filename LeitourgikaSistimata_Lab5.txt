@@ -233,14 +233,28 @@
 	#	σε μια μεταβλητή (π.χ. :zn*si:) δεν υπάρχει πρόβλημα.
 
 ΑΣΚΗΣΗ 9
+  ΛΥΣΗ:
+	#!/bin/bash
+	#lab5 - Askisi 9 - checkusers2.sh
+	getent passwd | cut -d ':' -f1,6 | sort
+	# OR
+	#cat /etc/passwd | cut -d ':' -f1,6 | sort
+
 ΑΣΚΗΣΗ 10
   ΛΥΣΗ (Θέλει βελτίωση ωστε να ελέγχει αν έχει δοθεί παράμετρος):
 	#!/bin/bash
+	#lab5 - askisi10 - display_capital
+	# Basic checks - START
+	required_params=1 # Number of required parameters
+	if [ "${#}" -ne "${required_params}" ]; then # Check number of parameters
+		echo "ERROR: Wrong number of parameters have been given." 1>&2
+		exit 1
+	fi	
 	cat $1 | tr [:lower:] [:upper:]
 
 ΑΣΚΗΣΗ 11
 ΑΣΚΗΣΗ 12
-  ΛΥΣΗ
+  ΛΥΣΗ:
 	#!/bin/bash
 	#Lab5 - Askisi 12
 	last | egrep '^[^ ]' | head -n -1 | cut -f 1 -d" " | sort | uniq -c | sort -nr
