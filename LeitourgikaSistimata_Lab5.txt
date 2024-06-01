@@ -95,7 +95,7 @@
     	done
     fi
 
-  ΛΥΣΗ 2: Βελτιωμένη έκδση. Επιστρέφει και errorcodes αν και δεν τα ζηταέι η άσκηση.
+  ΛΥΣΗ 2: Βελτιωμένη έκδοση. Επιστρέφει και errorcodes αν και δεν τα ζηταέι η άσκηση.
     #!/bin/bash
     tmp_exitcode=0
     found=1
@@ -243,16 +243,39 @@
 ΑΣΚΗΣΗ 10
   ΛΥΣΗ (Θέλει βελτίωση ωστε να ελέγχει αν έχει δοθεί παράμετρος):
 	#!/bin/bash
-	#lab5 - askisi10 - display_capital
+	#lab5 - askisi10 - display_capital.sh
 	# Basic checks - START
 	required_params=1 # Number of required parameters
 	if [ "${#}" -ne "${required_params}" ]; then # Check number of parameters
 		echo "ERROR: Wrong number of parameters have been given." 1>&2
 		exit 1
 	fi	
-	cat $1 | tr [:lower:] [:upper:]
+	if [ ! -f "${1}" ]; then # Check if 1st parameter is a file
+		echo "ERROR: File \"${1}\" does not exist." 1>&2
+		exit 2
+	fi
+	if [ ! -r "${1}" ]; then # Check if 1st parameter is a readable file
+		echo "ERROR: File \"${1}\" is not a readable file." 1>&2
+		exit 2
+	fi
+	cat "${1}" | tr [:lower:] [:upper:]
 
 ΑΣΚΗΣΗ 11
+  ΛΥΣΗ:
+	#!/bin/bash
+	#lab5 - askisi11 - ls_capital.sh
+	# Basic checks - START
+	required_params=1 # Number of required parameters
+	if [ "${#}" -ne "${required_params}" ]; then # Check number of parameters
+		echo "ERROR: Wrong number of parameters have been given." 1>&2
+		exit 1
+	fi	
+	if [ ! -d "${1}" ]; then # Check if 1st parameter is a directory
+		echo "ERROR: Directory \"${1}\" does not exist." 1>&2
+		exit 2
+	fi
+	ls -l "${1}" | tr -s ' ' | cut -d " " -f9 | egrep '^[^" "]' | tr [:lower:] [:upper:]
+
 ΑΣΚΗΣΗ 12
   ΛΥΣΗ:
 	#!/bin/bash
