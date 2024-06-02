@@ -327,5 +327,23 @@
 	cat "${1}" | cut -d "/" -f3 | uniq -c
 
 ΑΣΚΗΣΗ 14
+  ΛΥΣΗ:
+	#!/bin/bash
+	#lab5 - askisi14 - iphost.sh
+	# Basic checks - START
+	required_params=1 # Number of required parameters
+	if [ "${#}" -ne "${required_params}" ]; then # Check number of parameters
+		echo "ERROR: Wrong number of parameters have been given." 1>&2
+		exit 1
+	fi
+	# Basic checks - END
+	host "${1}" >"/tmp/${$}"
+	if [ "${?}" -ne 0 ]; then
+		echo "-"
+	else
+		cat "/tmp/${$}" | cut -d " " -f5 | cut -d "," -f1-4
+	fi
+	rm /tmp/"${$}"
+
 ΑΣΚΗΣΗ 15
 ΑΣΚΗΣΗ 16
