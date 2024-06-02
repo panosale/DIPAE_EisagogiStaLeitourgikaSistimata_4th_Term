@@ -258,6 +258,7 @@
 		echo "ERROR: File \"${1}\" is not a readable file." 1>&2
 		exit 2
 	fi
+	# Basic checks - END
 	cat "${1}" | tr [:lower:] [:upper:]
 
 ΑΣΚΗΣΗ 11
@@ -274,6 +275,7 @@
 		echo "ERROR: Directory \"${1}\" does not exist." 1>&2
 		exit 2
 	fi
+	# Basic checks - END
 	ls -l "${1}" | tr -s ' ' | cut -d " " -f9 | egrep '^[^" "]' | tr [:lower:] [:upper:]
 
 ΑΣΚΗΣΗ 12
@@ -282,7 +284,48 @@
 	#Lab5 - Askisi 12
 	last | egrep '^[^ ]' | head -n -1 | cut -f 1 -d" " | sort | uniq -c | sort -nr
 
-ΑΣΚΗΣΗ 13
+ΑΣΚΗΣΗ 13.A
+  ΛΥΣΗ:
+	#!/bin/bash
+	#lab5 - askisi13 - urlparse.sh
+	# Basic checks - START
+	required_params=1 # Number of required parameters
+	if [ "${#}" -ne "${required_params}" ]; then # Check number of parameters
+		echo "ERROR: Wrong number of parameters have been given." 1>&2
+		exit 1
+	fi
+	if [ ! -f "${1}" ]; then # Check if 1st parameter is a file
+		echo "ERROR: File \"${1}\" does not exist." 1>&2
+		exit 2
+	fi
+	if [ ! -r "${1}" ]; then # Check if 1st parameter is a readable file
+		echo "ERROR: File \"${1}\" is not a readable file." 1>&2
+		exit 2
+	fi
+	# Basic checks - END
+	cat "${1}" | cut -d "/" -f3
+
+ΑΣΚΗΣΗ 13.B
+  ΛΥΣΗ:
+	#!/bin/bash
+	#lab5 - askisi13 - urlparse2.sh
+	# Basic checks - START
+	required_params=1 # Number of required parameters
+	if [ "${#}" -ne "${required_params}" ]; then # Check number of parameters
+		echo "ERROR: Wrong number of parameters have been given." 1>&2
+		exit 1
+	fi
+	if [ ! -f "${1}" ]; then # Check if 1st parameter is a file
+		echo "ERROR: File \"${1}\" does not exist." 1>&2
+		exit 2
+	fi
+	if [ ! -r "${1}" ]; then # Check if 1st parameter is a readable file
+		echo "ERROR: File \"${1}\" is not a readable file." 1>&2
+		exit 2
+	fi
+	# Basic checks - END
+	cat "${1}" | cut -d "/" -f3 | uniq -c
+
 ΑΣΚΗΣΗ 14
 ΑΣΚΗΣΗ 15
 ΑΣΚΗΣΗ 16
