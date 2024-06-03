@@ -525,6 +525,9 @@
 		# Find top URL
 		echo -n "Most visited URL: "
 		cut -d " " -f7 "${logfile}" | uniq -c | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+		echo "Daily visits: "
+		cut -d " " -f4 "${logfile}" | cut -d ":" -f1 | tr -d "[" | uniq -c | sort -k1n
+		exit 0
 	fi
 	
 	# Find IPV4 with most requests
