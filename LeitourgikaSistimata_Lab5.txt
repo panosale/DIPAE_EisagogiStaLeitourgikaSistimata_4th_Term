@@ -45,30 +45,37 @@
 
 ΑΣΚΗΣΗ 3
   ΛΥΣΗ:
-    #!/bin/bash
-    echo -n "Give directory 1 name: "
-    read dir1
-    echo -n "Give directory 2 name: "
-    read dir2
-    #echo "Directory 1: ${dir1}" # ΓΙΑ ΕΛΕΓΧΟ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ.
-    #echo "Directory 2: ${dir2}" # ΓΙΑ ΕΛΕΓΧΟ. ΔΕΝ ΧΡΕΙΑΖΕΤΑΙ.
-    # Check if given directories exist
-    if [ ! -e $dir1 ] ; then
-    	echo "Dir ${dir1} does not exist and will be created."
-    	mkdir "${dir1}"
-    fi
-    if [ ! -e $dir2 ]; then
-    	echo "Dir ${dir2} does not exist and will be created."
-    	mkdir "${dir2}"
-    fi
-    mv [0-5]* "${dir1}/"
-    mv [6-9]* "${dir2}/"
-    echo -n "Total files moved in ${dir1}: "
-    lines_dir1=`ls -l "${dir1}" | wc -l` # ΓΙΑ ΤΗΝ ΑΦΑΙΡΕΣΗ ΤΗΣ ΓΡΑΜΜΗΣ total x
-    echo $((lines_dir1-1)) # ΓΙΑ ΤΗΝ ΑΦΑΙΡΕΣΗ ΤΗΣ ΓΡΑΜΜΗΣ total x
-    echo -n "Total files moved in ${dir2}: "
-    lines_dir2=`ls -l "${dir2}" | wc -l` # ΓΙΑ ΤΗΝ ΑΦΑΙΡΕΣΗ ΤΗΣ ΓΡΑΜΜΗΣ total x
-    echo $((lines_dir2-1)) # ΓΙΑ ΤΗΝ ΑΦΑΙΡΕΣΗ ΤΗΣ ΓΡΑΜΜΗΣ total x
+	#!/bin/bash
+	#lab5 - Askisi3 - dir_split.sh
+	source_dir="${1}"
+	echo -n "Give directory 1 name: "
+	read dest_dir1
+	echo -n "Give directory 2 name: "
+	read dest_dir2
+	#echo "Directory 1: ${dest_dir1}"
+	#echo "Directory 2: ${dest_dir2}"
+
+	# Check if given directories exist
+	if [ ! -e $dest_dir1 ] ; then
+		echo "Dir ${dest_dir1} does not exist and will be created."
+		mkdir "${dest_dir1}"
+	fi
+	if [ ! -e $dest_dir2 ]; then
+		echo "Dir ${dest_dir2} does not exist and will be created."
+		mkdir "${dest_dir2}"
+	fi
+
+	# Move files to newly created diretories
+	mv "${source_dir}"/[0-5]* "${dest_dir1}/"
+	mv "${source_dir}"/[6-9]* "${dest_dir2}/"
+
+	# Show files count in new directories
+	lines_dest_dir1=`ls -l "${dest_dir1}" | wc -l`
+	echo -n "Total files moved in ${dest_dir1}: "
+	echo $((lines_dest_dir1-1))
+	lines_dest_dir2=`ls -l "${dest_dir2}" | wc -l`
+	echo -n "Total files moved in ${dest_dir2}: "
+	echo $((lines_dest_dir2-1))
 
 ΑΣΚΗΣΗ 4
   ΛΥΣΗ 1: Αρχική έκδση.
