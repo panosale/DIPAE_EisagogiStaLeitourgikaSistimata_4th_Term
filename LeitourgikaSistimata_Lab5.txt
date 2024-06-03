@@ -443,3 +443,126 @@
 	fi
 
 ΑΣΚΗΣΗ 16
+  ΛΥΣΗ:
+	#!/bin/bash
+	#lab5 - askisi16 - webanalizer2.sh
+	# Basic checks - START
+	topip4=0
+	topip6=0
+	topurl=0
+	topall=0
+	totalsize=0
+	maxfile=0
+	daily=0
+	logfile=""
+	if [ "${#}" -eq 0 ]; then
+		echo "ERROR : At least one argument required." 1>&2
+		exit 1
+	fi
+	if [ "${#}" -eq 1 ]; then # Check number of parameters
+		if [ ! -f "${1}" ]; then # Check if 1st parameter is a file
+			echo "ERROR : File \"${1}\" does not exist." 1>&2
+			exit 2
+		fi
+		if [ ! -r "${1}" ]; then # Check if 1st parameter is a readable file
+			echo "ERROR : File \"${1}\" is not readable." 1>&2
+			exit 2
+		fi
+		topall=1
+		logfile="${1}"
+		shift
+	fi
+	# Basic checks - END
+	while (("${#}">0)); do
+		case "${1}" in
+			-topip4) topip4=1
+				;;
+			-topip6) topip6=1
+				;;
+			-topurl) topurl=1
+				;;
+			-totalsize) totalsize=1
+				;;
+			-maxfile) maxfile=1
+				;;
+			-daily) daily=1
+				;;
+			*) if [ -e "${1}" ]; then 
+				logfile="${1}"
+				if [ ! -f "${logfile}" ]; then # Check if 1st paramater (after shifting all other) is a file
+					echo "ERROR : File \"${logfile}\" does not exist.." 1>&2
+					exit 2
+				fi
+				if [ ! -r "${logfile}" ]; then # Check if 1st parameter (after shifting all other) is a readable file
+					echo "ERROR : File \"${logfile}\" is not readable.." 1>&2
+					exit 2
+				fi
+			else
+				if [ -z "${logfile}" ]; then
+					echo "ERROR : A file is required.." 1>&2
+					exit 2
+				else
+					echo "ERROR: At least one argument is incorrect." 1>&2
+					exit 3
+				fi
+			fi
+			;;
+		esac
+		shift
+	done
+	if [ -z "${logfile}" ]; then
+		echo "ERROR : A file is required.." 1>&2
+		exit 2
+	fi
+	# No other argument have been given. Show all statistics
+	if (( "${topall}" == 1 )) then
+		# Find IPV4 with most requests
+		echo -n "The IPV4 with most requests is: "
+		cut -d " " -f1 "${logfile}" | uniq -c | egrep --color '[.]' | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+		# Find IPV6 with most requests
+		echo -n "The IPV6 with most requests is: "
+		cut -d " " -f1 "${logfile}" | uniq -c | egrep --color '[:]' | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+		# Find top URL
+		echo -n "Most visited URL: "
+		cut -d " " -f7 "${logfile}" | uniq -c | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+	fi
+	
+	# Find IPV4 with most requests
+	if (( "${topip4}" == 1 )); then
+		echo -n "The IPV4 with most requests is: "
+		cut -d " " -f1 "${logfile}" | uniq -c | egrep --color '[.]' | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+	fi
+	
+	# Find IPV6 with most requests
+	if (( "${topip6}" == 1 )); then
+		echo -n "The IPV6 with most requests is: "
+		cut -d " " -f1 "${logfile}" | uniq -c | egrep --color '[:]' | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+	fi
+	
+	# Find top URL
+	if (( "${topurl}" == 1 )); then
+		echo -n "Most visited URL: "
+		cut -d " " -f7 "${logfile}" | uniq -c | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+	fi
+	
+	# Find total size
+	if (( "${totalsize}" == 1 )); then
+		echo -n "Total size: "
+		cut -d " " -f9 "${logfile}"
+		echo "TO DO HERE THINGS"
+		# TO DO HERE THINGS
+	fi
+		
+	# Find max file
+	if (( "${maxfile}" == 1 )); then
+		echo -n "Max file is: "
+		echo "TO DO HERE THINGS"
+		# TO DO HERE THINGS
+	fi
+
+	# Find daily 
+	if (( "${daily}" == 1 )); then
+		echo "Daily visits: "
+		cut -d " " -f4 "${logfile}" | cut -d ":" -f1 | tr -d "[" | uniq -c | sort -k1n
+	fi
+
