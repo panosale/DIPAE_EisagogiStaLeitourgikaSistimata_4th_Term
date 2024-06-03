@@ -70,12 +70,8 @@
 	mv "${source_dir}"/[6-9]* "${dest_dir2}/"
 
 	# Show files count in new directories
-	lines_dest_dir1=`ls -l "${dest_dir1}" | wc -l`
-	echo -n "Total files moved in ${dest_dir1}: "
-	echo $((lines_dest_dir1-1))
-	lines_dest_dir2=`ls -l "${dest_dir2}" | wc -l`
-	echo -n "Total files moved in ${dest_dir2}: "
-	echo $((lines_dest_dir2-1))
+	echo "Total files moved in ${dest_dir1}: " $((`ls -l "${dest_dir1}" | wc -l` -1))
+	echo "Total files moved in ${dest_dir2}: " $((`ls -l "${dest_dir2}" | wc -l` -1))
 
 ΑΣΚΗΣΗ 4
   ΛΥΣΗ 1: Αρχική έκδση.
@@ -353,4 +349,84 @@
 	rm /tmp/"${$}"
 
 ΑΣΚΗΣΗ 15
+  ΛΥΣΗ:
+	#!/bin/bash
+	#lab5 - askisi15 - webanalizer.sh
+	# Basic checks - START
+	topip4=0
+	topip6=0
+	topurl=0
+	topall=0
+	#required_params=4 # Number of required parameters
+	if [ "${#}" -eq 1 ]; then # Check number of parameters
+		topall=1
+		logfile="${1}"
+		if [ ! -f "${1}" ]; then # Check if 1st parameter is a file
+			echo "ERROR chek1 : File \"${1}\" does not exist." 1>&2
+			exit 2
+		fi
+		if [ ! -r "${1}" ]; then # Check if 1st parameter is a readable file
+			echo "ERROR check1: File \"${1}\" is not a readable file." 1>&2
+			exit 2
+		fi
+	fi
+	# Basic checks - END
+	shift
+	while (("${#}">0)); do
+		case "${1}" in
+			-topip4) topip4=1
+				;;
+			-topip6) topip6=1
+				;;
+			-topurl) topurl=1
+				;;
+			*) if [ -f "${1}" ]; then 
+				logfile="${1}"
+			else
+				echo "ERROR: At least one argument is incorrect." 1>&2
+				exit 3
+			fi	;;
+		esac
+		shift
+	done
+	if [ ! -f "${logfile}" ]; then # Check if 1st parameter is a file
+		echo "ERROR: File \"${1}\" does not exist." 1>&2
+		exit 2
+	fi
+	if [ ! -r "${logfile}" ]; then # Check if 1st parameter is a readable file
+		echo "ERROR: File \"${1}\" is not a readable file." 1>&2
+		exit 2
+	fi
+
+	# Find IPV4 with most requests
+	if (( "${topip4}" == 1 )); then
+		echo -n "The IPV4 with most requests is: "
+		cut -d " " -f1 "${logfile}" | uniq -c | egrep --color '[.]' | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+	fi
+
+	# Find IPV6 with most requests
+	if (( "${topip6}" == 1 )); then
+		echo -n "The IPV6 with most requests is: "
+		cut -d " " -f1 "${logfile}" | uniq -c | egrep --color '[:]' | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+	fi
+
+	# Find top URL
+	if (( "${topurl}" == 1 )); then
+		echo -n "Most visited URL: "
+		cut -d " " -f7 "${logfile}" | uniq -c | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+	fi
+
+	if (( "${topall}" == 1 )) then
+		# Find IPV4 with most requests
+		echo -n "The IPV4 with most requests is: "
+		cut -d " " -f1 "${logfile}" | uniq -c | egrep --color '[.]' | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+		# Find IPV6 with most requests
+		echo -n "The IPV6 with most requests is: "
+		cut -d " " -f1 "${logfile}" | uniq -c | egrep --color '[:]' | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+		# Find top URL
+		echo -n "Most visited URL: "
+		cut -d " " -f7 "${logfile}" | uniq -c | sort -k1n | tail -1 | tr -s " " | cut -d " " -f3
+
+	fi
+
 ΑΣΚΗΣΗ 16
